@@ -79,7 +79,6 @@ export default {
     //添加
     add() {
       this.form.menus = JSON.stringify(this.$refs.tree.getCheckedKeys());
-      //    console.log(this.$refs.tree.getCheckedKeys());
       reqroleadd(this.form).then((res) => {
          this.hide()
          this.requareRoleList();

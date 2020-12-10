@@ -90,6 +90,10 @@ export default new Router({
         ...indexRouter
 
       ]
+    },
+    {
+      path:'*',
+      component:login
     }
   ]
 })

@@ -9,6 +9,8 @@ import role from './modules/role.js'
 import manager from './modules/manager.js'
 import cate from './modules/cate.js'
 import spec from './modules/spec'
+import good from './modules/good'
+import banner from './modules/banner'
 export default new Vuex.Store({
 
     modules:{
@@ -16,7 +18,9 @@ export default new Vuex.Store({
         role,
         manager,
         cate,
-        spec
+        spec,
+        good,
+        banner
     }
 
 

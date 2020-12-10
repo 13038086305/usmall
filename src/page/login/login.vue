@@ -4,7 +4,7 @@
         <h3>登录</h3>
         <div><input type="text" value="请输入账号"></div>
         <div><input type="text" value="请输入密码"></div>
-        <div><button>登录</button></div>
+        <div><button @click="tiao">登录</button></div>
     </div>
     
 </div>
@@ -18,6 +18,9 @@ data () {
  }
 },
 methods:{
+    tiao(){
+        this.$router.push('/index')
+    }
 },
 mounted(){
 }

@@ -103,7 +103,7 @@ export default {
 
     ...mapActions({
       // reqmenuList: "menu/reqmenuList",
-      requestcatelist: "cate/requestcatelist",
+      requestcatelist: "/requestcatelist",
     }),
     //隐藏弹框
     hide() {

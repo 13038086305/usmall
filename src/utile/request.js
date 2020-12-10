@@ -284,6 +284,128 @@ export const reqsPecsDel=(id)=>{
 
 
 
+///////////////////////////////////商品管理//////////////////////////////////
+//商品添加
+export const reqgoodadd=(data)=>{
+    var form = new FormData()
+    for(var i in data){
+        form.append(i,data[i])
+    }
+    console.log(form);
+    return axios({
+        url:baseUrl+'/api/goodsadd',
+        method:'post',
+        data:form
+    })
+}
+
+//商品列表
+export const reqgoodlist=(params)=>{
+    return axios({
+        url:baseUrl+'/api/goodslist',
+        method:'get',
+        params:params
+    })
+}
+//商品获取（一条）
+export const reqgoodinfo=(id)=>{
+    return axios({
+        url:baseUrl+'/api/goodsinfo',
+        method:'get',
+        params:id
+    })
+}
+//商品修改
+export const reqgoodedit=(data)=>{
+    var form = new FormData()
+    for(var i in data){
+        form.append(i,data[i])
+    }
+    return axios({
+        url:baseUrl+'/api/goodsedit',
+        method:'post',
+        data:form
+    })
+}
+
+//商品删除
+export const reqgoodDel=(id)=>{
+    return axios({
+        url:baseUrl+'/api/goodsdelete',
+        method:'post',
+        data:id
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////轮播图管理//////////////////////////////////
+//商品分类添加
+export const reqbanneradd=(data)=>{
+    var form = new FormData()
+    for(var i in data){
+        form.append(i,data[i])
+    }
+    console.log(form);
+    return axios({
+        url:baseUrl+'/api/banneradd',
+        method:'post',
+        data:form
+    })
+}
+
+//分类列表
+export const reqbannerlist=()=>{
+    return axios({
+        url:baseUrl+'/api/bannerlist',
+        method:'get',
+
+    })
+}
+//商品分类获取（一条）
+export const reqbannerinfo=(id)=>{
+    return axios({
+        url:baseUrl+'/api/bannerinfo',
+        method:'get',
+        params:id
+    })
+}
+//商品修改
+export const reqbanneredit=(data)=>{
+    var form = new FormData()
+    for(var i in data){
+        form.append(i,data[i])
+    }
+    return axios({
+        url:baseUrl+'/api/banneredit',
+        method:'post',
+        data:form
+    })
+}
+
+//商品删除
+export const reqbannerDel=(id)=>{
+    return axios({
+        url:baseUrl+'/api/bannerdelete',
+        method:'post',
+        data:id
+    })
+}
+
+
+
+
 
 
 
