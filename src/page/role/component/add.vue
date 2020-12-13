@@ -42,7 +42,7 @@
 </template>
 <script>
 import { mapActions, mapGetters} from "vuex";
-import { reqroleadd  ,reqroleOne,reqroleEdit} from "../../../utile/request";
+import { reqroleadd,reqroleOne,reqroleEdit} from "../../../utile/request";
 export default {
   computed: {
     ...mapGetters({
@@ -73,8 +73,8 @@ export default {
         status: 1,
         rolename: "",
         menus: [],
-      }
-      this.menu = this.$refs.tree.setCheckedKeys([])
+      };
+      this.form.menus = this.$refs.tree.setCheckedKeys([])
     },
     //添加
     add() {

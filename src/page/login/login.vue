@@ -2,27 +2,48 @@
 <div class="box">
     <div class="con">
         <h3>登录</h3>
-        <div><input type="text" value="请输入账号"></div>
-        <div><input type="text" value="请输入密码"></div>
+        <div><input type="text" v-model="user.username"></div>
+        <div><input type="text"  v-model="user.password"></div>
         <div><button @click="tiao">登录</button></div>
     </div>
     
 </div>
 </template>
 <script>
+import {mapActions,mapGetters} from "vuex"
+import {reqlogin} from '../../utile/request'
 export default {
 components:{
  },
 data () {
  return {
+     user:{
+         username:'',
+         password:''
+     }
+     
  }
 },
 methods:{
+    ...mapActions({
+        requestloginlist:'users/requestloginlist'
+    }),
     tiao(){
-        this.$router.push('/index')
+        reqlogin(this.user).then(res=>{
+            if(res.data.code==200){
+                this.requestloginlist(res.data.list);
+                this.$router.push('/index/home')
+
+            }else{
+                alert(res.data.msg)
+            }
+             
+        })
     }
 },
+
 mounted(){
+    // this.requestloginlist()
 }
 }
 </script>

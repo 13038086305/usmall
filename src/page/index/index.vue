@@ -42,7 +42,14 @@
         </el-menu>
       </el-aside>
       <el-container>
-        <el-header>Header</el-header>
+       
+        <el-header >
+          <div class="headerTop">
+            <el-button type="danger" @click="quit">退出</el-button>
+          </div>
+          <div class="headerTop">{{ userslist.username }}</div>
+        </el-header>
+
         <el-main>
           <!-- 面包屑导航 -->
           <el-breadcrumb separator-class="el-icon-arrow-right">
@@ -58,13 +65,30 @@
   </div>
 </template>
 <script>
+import {mapActions,mapGetters} from "vuex"
 export default {
+  computed:{
+    ...mapGetters({
+      userslist:'users/list'
+    })
+
+  },
   components: {},
   data() {
     return {};
   },
-  methods: {},
-  mounted() {},
+  methods: {
+    ...mapActions({
+      requestloginlist:'users/requestloginlist'
+    }),
+    quit(){
+        this.requestloginlist({});
+        this.$router.push("/login");
+    }
+  },
+  mounted() {
+    // this.requestloginlist()
+  },
 };
 </script>
 <style sco>
@@ -105,5 +129,8 @@ body > .el-container {
 .box {
   width: 100vw;
   height: 100vh;
+}
+.headerTop {
+  float: right;
 }
 </style>

@@ -143,7 +143,7 @@ export default {
       //修改二级分类
       changecate(){
           this.secondCate = this.catelist.find(item=>{
-              return item.id = this.form.first_cateid
+              return item.id == this.form.first_cateid
           }).children
           
       },
@@ -151,7 +151,7 @@ export default {
     changeSpec(){
         this.form.specsattr = []
         this.secondSpec = this.speclist.find(item=>{
-            return item.id = this.form.specsid
+            return item.id == this.form.specsid
         }).attrs
     },
     //上传图片

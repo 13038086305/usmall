@@ -338,6 +338,16 @@ export const reqgoodDel=(id)=>{
 }
 
 
+//管理员登录
+export const reqlogin=(data)=>{
+    return axios({
+        url:baseUrl+'/api/userlogin',
+        method:'post',
+        data:data
+    })
+}
+
+
 
 
 
@@ -408,6 +418,52 @@ export const reqbannerDel=(id)=>{
 
 
 
+
+
+
+
+///////////////////////////////////秒杀管理//////////////////////////////////
+//商品添加
+export const reqseckadd=(data)=>{
+    return axios({
+        url:baseUrl+'/api/seckadd',
+        method:'post',
+        data:data
+    })
+}
+
+//商品列表
+export const reqsecklist=()=>{
+    return axios({
+        url:baseUrl+'/api/secklist',
+        method:'get',
+    })
+}
+//商品获取（一条）
+export const reqseckinfo=(id)=>{
+    return axios({
+        url:baseUrl+'/api/seckinfo',
+        method:'get',
+        params:id
+    })
+}
+//商品修改
+export const reqseckedit=(data)=>{
+    return axios({
+        url:baseUrl+'/api/seckedit',
+        method:'post',
+        data:data
+    })
+}
+
+//商品删除
+export const reqseckDel=(id)=>{
+    return axios({
+        url:baseUrl+'/api/seckdelete',
+        method:'post',
+        data:id
+    })
+}
 
 
 

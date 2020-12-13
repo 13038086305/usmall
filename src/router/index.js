@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+
+
+import store from '../stort/index'
 const login = () => import('../page/login/login')
 const index = () =>import('../page/index/index')
 const banner = () => import('../page/banner/banner')
@@ -68,7 +71,7 @@ export const indexRouter = [
 
 ]
 
-export default new Router({
+const router =  new Router({
   routes: [
     {
       path: '/login',
@@ -81,7 +84,17 @@ export default new Router({
         {
           path: 'home',
           component:home,
-          name: '首页'
+          name: '首页',
+          beforeEnter(to,from,next){
+            console.log(to);
+            console.log(from);
+            if(from.path=="/login" && store.state.users.list){
+              next()
+            }else{
+              next('/login')
+            }
+
+          }
         },
         {
           path: '',
@@ -97,3 +110,26 @@ export default new Router({
     }
   ]
 })
+
+
+console.log(store);
+
+//全局守卫
+router.beforeEach((to,from,next)=>{
+  if(to.path=='/login'){
+    next()
+  }
+
+
+  //去的不是登录,判断是否登录，如果登录成功就会拿到res.data.list里的信息，
+  if(store.state.users.list.menus){
+    next()
+
+  }else{
+    next('/login')
+    // this.$router.push('/login')
+  }
+ 
+})
+
+export default  router

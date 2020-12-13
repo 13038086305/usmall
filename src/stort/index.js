@@ -11,6 +11,8 @@ import cate from './modules/cate.js'
 import spec from './modules/spec'
 import good from './modules/good'
 import banner from './modules/banner'
+import users from './modules/users'
+import seck from './modules/seckill'
 export default new Vuex.Store({
 
     modules:{
@@ -20,7 +22,9 @@ export default new Vuex.Store({
         cate,
         spec,
         good,
-        banner
+        banner,
+        users,
+        seck
     }
 
 
